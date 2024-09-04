@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import {
+  View,
+} from 'react-native';
 import Button from '../../components/atoms/Button';
 import FormInput from '../../components/molecules/FormInput';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import CloseButton from '../../components/atoms/CloseButton';
+import Base from '../../components/templates/Base';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo, clearTodo } from '../../store/actions/todoAction';
 import uuid from "react-native-uuid"
@@ -56,37 +59,38 @@ const Edit = (props) => {
   }
 
   return (
-    <SafeAreaView style={{ backgroundColor: '#FDE6BD', flex: 1, paddingHorizontal: 20 }}>
-      <CloseButton onpress={() => { props.navigation.goBack() }} />
-      <FormInput
-        title={'Title'}
-        placeholder={'Title'}
-        value={title}
-        maxLength={50}
-        onChangeText={(input) => { set_title(input) }}
-        height={50}
-      />
-      <FormInput
-        title={'Content'}
-        placeholder={'Content'}
-        value={content}
-        maxLength={150}
-        onChangeText={(input) => { set_content(input) }}
-        height={200}
-      />
-      <Button
-        title={'Save'}
-        onpress={save}
-        backgroundColor={'#868fba'}
-      />
-      {props.route.params?.id && (
-        <Button
-          title={'Delete'}
-          onpress={onDelete}
-          backgroundColor={'#F48E8E'}
+    <Base>
+      <View style={{ paddingHorizontal: 20 }}>
+        <CloseButton onpress={() => { props.navigation.goBack() }} />
+        <FormInput
+          title={'Title'}
+          placeholder={'Title'}
+          value={title}
+          maxLength={50}
+          onChangeText={(input) => { set_title(input) }}
+          height={50}
         />
-      )}
-      {/* <Pressable
+        <FormInput
+          title={'Content'}
+          placeholder={'Content'}
+          value={content}
+          maxLength={150}
+          onChangeText={(input) => { set_content(input) }}
+          height={200}
+        />
+        <Button
+          title={'Save'}
+          onpress={save}
+          backgroundColor={'#868fba'}
+        />
+        {props.route.params?.id && (
+          <Button
+            title={'Delete'}
+            onpress={onDelete}
+            backgroundColor={'#F48E8E'}
+          />
+        )}
+        {/* <Pressable
         onPress={() => {
           dispatch(clearTodo())
         }}
@@ -102,7 +106,8 @@ const Edit = (props) => {
           clear
         </Text>
       </Pressable> */}
-    </SafeAreaView>
+      </View>
+    </Base>
   )
 }
 

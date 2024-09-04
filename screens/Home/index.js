@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import AddButton from '../../components/atoms/AddButton';
 import Search from '../../components/molecules/Search';
 import Header from '../../components/molecules/Header';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import Base from '../../components/templates/Base';
 import { useSelector } from 'react-redux'
 import TodoList from '../../components/organism/TodoList';
 import FilterBar from '../../components/organism/FilterBar';
@@ -32,7 +32,7 @@ const Home = (props) => {
   }, [todo, filter, search])
 
   return (
-    <SafeAreaView style={{ backgroundColor: '#FDE6BD', flex: 1, }}>
+    <Base>
       <View style={{ justifyContent: 'space-between', flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Header />
@@ -60,7 +60,7 @@ const Home = (props) => {
           navigation={props.navigation}
         />
       </View>
-    </SafeAreaView>
+    </Base>
   )
 }
 
