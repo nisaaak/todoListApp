@@ -1,6 +1,7 @@
 import React from "react"
 import { Pressable } from "react-native"
 import { Feather, MaterialIcons } from '@expo/vector-icons';
+import styles from "./styles";
 
 const AddButton = ({
     onpress,
@@ -9,14 +10,7 @@ const AddButton = ({
         onPress={() => {
             onpress()
         }}
-        style={{
-            backgroundColor: '#F48E8E',
-            width: 50,
-            height: 50,
-            borderRadius: 25,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
+        style={styles.addButton}>
         <Feather name="plus" size={32} color="#fff" />
     </Pressable>
 )

@@ -1,7 +1,7 @@
 import {
   View,
 } from 'react-native';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddButton from '../../components/atoms/AddButton';
 import Search from '../../components/molecules/Search';
 import Header from '../../components/molecules/Header';
@@ -9,6 +9,7 @@ import Base from '../../components/templates/Base';
 import { useSelector } from 'react-redux'
 import TodoList from '../../components/organism/TodoList';
 import FilterBar from '../../components/organism/FilterBar';
+import styles from './styles';
 
 const Home = (props) => {
   const todo = useSelector(state => state.todoData.todo)
@@ -34,10 +35,10 @@ const Home = (props) => {
 
   return (
     <Base>
-      <View style={{ justifyContent: 'space-between', flex: 1 }}>
+      <View style={styles.container}>
         <View style={{ padding: 20 }}>
           <Header />
-          <View style={{ flexDirection: 'row', marginTop: 10 }}>
+          <View style={styles.search}>
             <Search
               press={press}
               search={search}

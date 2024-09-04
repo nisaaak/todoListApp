@@ -1,6 +1,7 @@
 import React from "react"
 import Text from "../../atoms/Text"
 import { Pressable, TextInput } from "react-native"
+import styles from "./styles"
 
 const FormInput = ({
     title,
@@ -22,14 +23,10 @@ const FormInput = ({
             onChangeText={(input) => {
                 onChangeText(input)
             }}
-            style={{
-                borderWidth: 1,
-                borderColor: '#868fba',
-                backgroundColor: '#fff',
-                borderRadius: 8,
-                height: height,
-                padding: 10
-            }}
+            style={[
+                styles.input,
+                { height: height }
+            ]}
         />
     </>
 )

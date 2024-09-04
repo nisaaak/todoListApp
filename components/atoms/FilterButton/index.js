@@ -1,6 +1,7 @@
 import React from "react"
 import Text from "../Text"
 import { Pressable } from "react-native"
+import styles from "./styles"
 
 const FilterButton = ({
     title,
@@ -11,14 +12,10 @@ const FilterButton = ({
         onPress={() => {
             onpress()
         }}
-        style={{
-            borderWidth: 2,
-            backgroundColor: filter === title ? '#F48E8E' : '#fff',
-            borderColor: '#F48E8E',
-            borderRadius: 8,
-            paddingHorizontal: 10,
-            marginHorizontal: 10
-        }}>
+        style={[
+            styles.container,
+            { backgroundColor: filter === title ? '#F48E8E' : '#fff' }
+        ]}>
         <Text>{title}</Text>
     </Pressable>
 )

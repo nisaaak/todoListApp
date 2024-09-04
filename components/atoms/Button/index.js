@@ -1,6 +1,7 @@
 import React from "react"
 import Text from "../Text"
 import { Pressable } from "react-native"
+import styles from "./styles"
 
 const Button = ({
     title,
@@ -9,14 +10,10 @@ const Button = ({
 }) => (
     <Pressable
         onPress={() => { onpress() }}
-        style={{
-            marginTop: 20,
-            backgroundColor: backgroundColor,
-            borderRadius: 20,
-            height: 50,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
+        style={[
+            styles.button,
+            { backgroundColor: backgroundColor }
+        ]}>
         <Text>
             {title}
         </Text>

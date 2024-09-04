@@ -1,14 +1,15 @@
 import React from "react"
 import { View } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
-import Animated, { BounceIn, BounceOut, useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import Animated, { BounceIn, BounceOut } from 'react-native-reanimated';
 import FilterButton from "../../atoms/FilterButton";
+import styles from "./styles";
 
 const FilterBar = ({
     filter,
     set_filter
 }) => (
-    <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center' }}>
+    <View style={styles.container}>
         <MaterialIcons name="sort" size={32} color='#868fba' />
         <FilterButton
             title={'Done'}

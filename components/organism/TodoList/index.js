@@ -4,6 +4,7 @@ import {
     Image
 } from 'react-native';
 import CardTodo from "../../molecules/CardTodo"
+import styles from './styles';
 
 const TodoList = ({
     navigation,
@@ -11,16 +12,7 @@ const TodoList = ({
 }) => {
 
     return (
-        <View style={{
-            backgroundColor: '#fff',
-            borderTopLeftRadius: 80,
-            borderTopRightRadius: 80,
-            flex: 1,
-            paddingTop: 80,
-            paddingHorizontal: 20,
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
+        <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 {todo.length ?
                     todo?.map((it, idx) => (
@@ -35,14 +27,10 @@ const TodoList = ({
                     )) : (
                         <Image
                             source={require('../../../assets/images/empty.png')}
-                            style={{ width: 300, height: 300 }}
+                            style={styles.img}
                         />
                     )}
             </ScrollView>
-
-            {/* <Text>
-                {JSON.stringify(todo)}
-            </Text> */}
         </View>
     )
 }

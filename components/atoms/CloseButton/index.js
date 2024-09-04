@@ -1,7 +1,7 @@
 import React from "react"
 import { Pressable } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
-
+import styles from "./styles";
 const CloseButton = ({
     onpress,
 }) => (
@@ -9,7 +9,7 @@ const CloseButton = ({
         onPress={() => {
             onpress()
         }}
-        style={{ alignItems: 'flex-end', marginTop: 20 }}>
+        style={styles.container}>
         <MaterialIcons name="close" size={32} color='#868fba' />
     </Pressable>
 )

@@ -1,8 +1,8 @@
 import React from "react"
-import Text from "../../atoms/Text"
-import { Pressable, View, TextInput } from "react-native"
-import { Feather, MaterialIcons } from '@expo/vector-icons';
-import Animated, { BounceIn, BounceOut, useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { View, TextInput } from "react-native"
+import { Feather } from '@expo/vector-icons';
+import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import styles from "./styles";
 
 const Search = ({
     press,
@@ -25,16 +25,7 @@ const Search = ({
     })
 
     return (
-        <View style={{
-            flex: 1,
-            backgroundColor: '#FDCFA8',
-            justifyContent: 'center',
-            borderRadius: 25,
-            paddingLeft: 10,
-            marginRight: 10,
-            flexDirection: 'row',
-            alignItems: 'center'
-        }}>
+        <View style={styles.container}>
             <Animated.View style={iconstyle}>
                 <Feather name="search" size={32} color="#fff" />
             </Animated.View>
@@ -51,10 +42,7 @@ const Search = ({
                 onPressOut={() => {
                     onPressOut()
                 }}
-                style={{
-                    flex: 1,
-                    marginLeft: 10
-                }}
+                style={styles.input}
             />
         </View>
     )

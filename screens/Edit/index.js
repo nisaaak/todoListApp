@@ -9,6 +9,7 @@ import Base from '../../components/templates/Base';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo, clearTodo } from '../../store/actions/todoAction';
 import uuid from "react-native-uuid"
+import styles from './styles';
 
 const Edit = (props) => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const Edit = (props) => {
 
   return (
     <Base>
-      <View style={{ paddingHorizontal: 20 }}>
+      <View style={styles.container}>
         <CloseButton onpress={() => { props.navigation.goBack() }} />
         <FormInput
           title={'Title'}

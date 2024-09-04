@@ -1,10 +1,11 @@
 import React from "react"
 import { SafeAreaView } from 'react-native-safe-area-context';
+import styles from "./styles";
 
 const Base = ({
     children
 }) => (
-    <SafeAreaView style={{ backgroundColor: '#FDE6BD', flex: 1, }}>
+    <SafeAreaView style={styles.container}>
         {children}
     </SafeAreaView>
 )

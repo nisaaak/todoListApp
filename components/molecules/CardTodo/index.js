@@ -3,12 +3,13 @@ import {
     Pressable,
     TouchableOpacity
 } from 'react-native';
-import { useState } from 'react';
 import Text from '../../atoms/Text'
 import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo } from '../../../store/actions/todoAction';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import styles from './styles';
+
 const CardTodo = ({
     title,
     content,
@@ -51,16 +52,7 @@ const CardTodo = ({
     return (
         <TouchableOpacity
             onPress={onPressCard}
-            style={{
-                backgroundColor: '#d3def5',
-                padding: 20,
-                borderRadius: 20,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: 20,
-                width: '100%'
-            }}>
+            style={styles.container}>
             <View style={{ flex: 1 }}>
                 <Text fontSize={20} color={'#8f96bd'}>
                     {title}
@@ -71,14 +63,7 @@ const CardTodo = ({
             </View>
             <Pressable
                 onPress={onpressCheck}
-                style={{
-                    backgroundColor: '#868fba',
-                    width: 30,
-                    height: 30,
-                    margin: 5,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
+                style={styles.check}>
                 {isDone && (
                     <Animated.View style={iconstyle}>
                         <MaterialIcons
