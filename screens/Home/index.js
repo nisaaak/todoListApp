@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import TodoList from '../../components/organism/TodoList';
 import FilterBar from '../../components/organism/FilterBar';
 import styles from './styles';
+import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
 
 const Home = (props) => {
   const todo = useSelector(state => state.todoData.todo)
@@ -17,6 +18,7 @@ const Home = (props) => {
   const [filter, set_filter] = useState('')
   const [press, set_press] = useState(false)
   const [data, set_data] = useState(false)
+  const [add, set_add] = useState(false)
 
   useEffect(() => {
     const filtered =
@@ -33,6 +35,19 @@ const Home = (props) => {
     }
   }, [search, todo, filter])
 
+  const plusStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          scaleX: withSpring(add ? -1 : 1, {
+            damping: 20,
+            stiffness: 100
+          })
+        }
+      ]
+    }
+  })
+
   return (
     <Base>
       <View style={styles.container}>
@@ -46,10 +61,17 @@ const Home = (props) => {
               onPressIn={() => { set_press(true) }}
               onPressOut={() => { set_press(false) }}
             />
-            <AddButton
-              onpress={() => {
-                props.navigation.navigate('Edit')
-              }} />
+            <Animated.View style={plusStyle}>
+              <AddButton
+                onpress={() => {
+                  set_add(true)
+                  setTimeout(() => {
+                    props.navigation.navigate('Edit')
+                    set_add(false)
+                  }, 500);
+                }} />
+            </Animated.View>
+
           </View>
 
           <FilterBar
