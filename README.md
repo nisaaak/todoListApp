@@ -29,3 +29,4 @@ Atomic design mempunyai manfaat reusabilitas, pemeliharaan yang mudah dan konsis
 3. **Asyncstorage** => Library storage berdasarkan key-value yang asycnchronous dan unencrypted. Bersama dengan Redux, asyncstorage digunakan untuk menyimpan state Redux secara lokal agar dapat diakses kembali saat aplikasi dimulai.
 4. **React Native Reanimated** => Library untuk menerapkan animasi pada react native. Animasi di terapkan pada transisi UI dan efek interaksi pada UI.
 5. **React Native uuid** =>Library untuk mengasilkan UUID (Universally Unique Identifier). UUID adalah serangkaian karakter unik yang sering digunakan sebagai identifier. Library ini digunakan untuk memastikan setiap ID todo yang dibuat benar-benar unik.
+6. **React Navigation** => Library ini digunakan untuk navigasi antar layar. Tipe navigasi yang digunakan pada proyek ini adalah stack navigation. Stack navigation memungkinkan untuk berpindah antar layar yang ditumpuk satu diatas yang lain. 
