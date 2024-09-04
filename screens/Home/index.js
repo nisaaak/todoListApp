@@ -1,7 +1,7 @@
 import {
   View,
 } from 'react-native';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import AddButton from '../../components/atoms/AddButton';
 import Search from '../../components/molecules/Search';
 import Header from '../../components/molecules/Header';
@@ -15,21 +15,22 @@ const Home = (props) => {
   const [search, set_search] = useState('')
   const [filter, set_filter] = useState('')
   const [press, set_press] = useState(false)
+  const [data, set_data] = useState(false)
 
-  const data = useMemo(() => {
+  useEffect(() => {
     const filtered =
       search === ''
         ? todo
         : todo.filter((e) => (e.title.includes(search)
           || e.content.includes(search)))
     if (filter === 'Done') {
-      return filtered.filter((e) => e.isDone)
+      set_data(filtered.filter((e) => e.isDone))
     } else if (filter === 'Not Done') {
-      return filtered.filter((e) => !e.isDone)
+      set_data(filtered.filter((e) => !e.isDone))
     } else if (filter === '') {
-      return filtered
+      set_data(filtered)
     }
-  }, [todo, filter, search])
+  }, [search, todo, filter])
 
   return (
     <Base>

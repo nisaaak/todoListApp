@@ -44,7 +44,6 @@ const Edit = (props) => {
           }
         ]
         dispatch(saveTodo(data));
-
       }
     }
     props.navigation.navigate('Home')
