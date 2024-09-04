@@ -5,12 +5,13 @@ import { Pressable } from "react-native"
 const Button = ({
     title,
     onpress,
+    backgroundColor
 }) => (
     <Pressable
         onPress={() => { onpress() }}
         style={{
             marginTop: 20,
-            backgroundColor: '#F48E8E',
+            backgroundColor: backgroundColor,
             borderRadius: 20,
             height: 50,
             justifyContent: 'center',

@@ -1,5 +1,5 @@
 import React from "react"
-import Text from "../Text"
+import Text from "../../atoms/Text"
 import { Pressable, View, TextInput } from "react-native"
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import Animated, { BounceIn, BounceOut, useAnimatedStyle, withSpring } from 'react-native-reanimated';
