@@ -3,7 +3,11 @@ import { Pressable } from "react-native"
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import styles from "./styles";
 
-const AddButton = ({
+type Props = {
+    onpress: () => void;
+} & React.ComponentProps<typeof Pressable>
+
+const AddButton: React.FC<Readonly<Props>> = ({
     onpress,
 }) => (
     <Pressable

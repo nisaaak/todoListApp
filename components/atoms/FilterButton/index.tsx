@@ -3,7 +3,13 @@ import Text from "../Text"
 import { Pressable } from "react-native"
 import styles from "./styles"
 
-const FilterButton = ({
+type Props = {
+    title: string;
+    onpress: () => void;
+    filter: string;
+} & React.ComponentProps<typeof Pressable>
+
+const FilterButton: React.FC<Readonly<Props>> = ({
     title,
     onpress,
     filter

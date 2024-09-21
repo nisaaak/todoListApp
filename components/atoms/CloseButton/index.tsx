@@ -2,7 +2,12 @@ import React from "react"
 import { Pressable } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from "./styles";
-const CloseButton = ({
+
+type Props = {
+    onpress: () => void;
+} & React.ComponentProps<typeof Pressable>
+
+const CloseButton: React.FC<Readonly<Props>> = ({
     onpress,
 }) => (
     <Pressable

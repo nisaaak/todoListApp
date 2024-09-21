@@ -3,7 +3,13 @@ import Text from "../Text"
 import { Pressable } from "react-native"
 import styles from "./styles"
 
-const Button = ({
+type Props = {
+    title: string;
+    onpress: () => void;
+    backgroundColor?: string;
+} & React.ComponentProps<typeof Pressable>
+
+const Button: React.FC<Readonly<Props>> = ({
     title,
     onpress,
     backgroundColor
