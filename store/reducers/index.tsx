@@ -6,4 +6,5 @@ const reducer = combineReducers<any>({
     todoData,
 })
 
+export type IRootState = ReturnType<typeof reducer>
 export default reducer

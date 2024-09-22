@@ -3,7 +3,16 @@ import Text from "../../atoms/Text"
 import { Pressable, TextInput } from "react-native"
 import styles from "./styles"
 
-const FormInput = ({
+type Props = {
+    title: string;
+    placeholder: string;
+    value: string;
+    maxLength: number;
+    onChangeText: (input: string) => void;
+    height: number;
+}
+
+const FormInput: React.FC<Props> = ({
     title,
     placeholder,
     value,

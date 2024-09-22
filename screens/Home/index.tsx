@@ -11,13 +11,19 @@ import TodoList from '../../components/organism/TodoList';
 import FilterBar from '../../components/organism/FilterBar';
 import styles from './styles';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { IRootState } from 'store/reducers';
+import { IForm } from 'interfaces/IForm';
 
-const Home = (props) => {
-  const todo = useSelector(state => state.todoData.todo)
+type ReduxList = {
+  todoData: IRootState;
+};
+
+const Home = (props: any) => {
+  const todo = useSelector<ReduxList>(state => state.todoData.todo) as IForm[]
   const [search, set_search] = useState('')
   const [filter, set_filter] = useState('')
   const [press, set_press] = useState(false)
-  const [data, set_data] = useState(false)
+  const [data, set_data] = useState<IForm[]>([])
   const [add, set_add] = useState(false)
 
   useEffect(() => {
@@ -81,7 +87,6 @@ const Home = (props) => {
         </View>
         <TodoList
           todo={data}
-          navigation={props.navigation}
         />
       </View>
     </Base>

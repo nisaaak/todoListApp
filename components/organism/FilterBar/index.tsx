@@ -5,7 +5,12 @@ import Animated, { BounceIn, BounceOut } from 'react-native-reanimated';
 import FilterButton from "../../atoms/FilterButton";
 import styles from "./styles";
 
-const FilterBar = ({
+type Props = {
+    filter: string;
+    set_filter: (input: string) => void;
+} & React.ComponentProps<typeof View>
+
+const FilterBar: React.FC<Readonly<Props>> = ({
     filter,
     set_filter
 }) => (

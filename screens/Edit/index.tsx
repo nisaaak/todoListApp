@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import {
   View,
 } from 'react-native';
@@ -10,12 +10,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo, clearTodo } from '../../store/actions/todoAction';
 import uuid from "react-native-uuid"
 import styles from './styles';
+import { IRootState } from 'store/reducers';
+import { IForm } from 'interfaces/IForm';
 
-const Edit = (props) => {
+type ReduxList = {
+  todoData: IRootState;
+};
+
+const Edit = (props: any) => {
   const dispatch = useDispatch();
   const [title, set_title] = useState('')
   const [content, set_content] = useState('')
-  const todo = useSelector(state => state.todoData.todo)
+  const todo = useSelector<ReduxList>(state => state.todoData.todo) as IForm[]
 
   useEffect(() => {
     console.log('page edit', props.route.params)
@@ -41,7 +47,7 @@ const Edit = (props) => {
             title: title,
             content: content,
             isDone: false,
-            id: uuid.v1()
+            id: uuid.v1().toString()
           }
         ]
         dispatch(saveTodo(data));

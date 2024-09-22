@@ -4,7 +4,15 @@ import { Feather } from '@expo/vector-icons';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import styles from "./styles";
 
-const Search = ({
+type Props = {
+    press: boolean;
+    search: string;
+    onChange: (input: string) => void;
+    onPressIn: () => void;
+    onPressOut: () => void;
+} & React.ComponentProps<typeof View>
+
+const Search: React.FC<Readonly<Props>> = ({
     press,
     search,
     onChange,

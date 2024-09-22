@@ -8,17 +8,26 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo } from '../../../store/actions/todoAction';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+import { IRootState } from 'store/reducers';
 import styles from './styles';
+import { IForm } from 'interfaces/IForm';
 
-const CardTodo = ({
+type Props = IForm & React.ComponentProps<typeof TouchableOpacity>
+
+type ReduxList = {
+  todoData: IRootState;
+};
+
+const CardTodo: React.FC<Props> = ({
   title,
   content,
   isDone,
   id,
-  navigation
 }) => {
+  const navigation: NavigationProp<ParamListBase> = useNavigation()
   const dispatch = useDispatch();
-  const todo = useSelector(state => state.todoData.todo)
+  const todo = useSelector<ReduxList>(state => state.todoData.todo) as IForm[]
 
   const onpressCheck = () => {
     let tempTodo = todo

@@ -5,9 +5,14 @@ import {
 } from 'react-native';
 import CardTodo from "../../molecules/CardTodo"
 import styles from './styles';
+import { IForm } from 'interfaces/IForm';
 
-const TodoList = ({
-    navigation,
+type Props = {
+    todo: IForm[];
+} & React.ComponentProps<typeof View>
+
+const TodoList: React.FC<Readonly<Props>> = ({
+    // navigation,
     todo
 }) => {
 
@@ -22,7 +27,7 @@ const TodoList = ({
                             content={it.content}
                             isDone={it.isDone}
                             id={it.id}
-                            navigation={navigation}
+                        // navigation={navigation}
                         />
                     )) : (
                         <Image
